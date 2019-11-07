@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiWpf", "DiWpf\DiWpf.csproj", "{C4EC215C-FBE2-4BD3-80AD-44E36F6BDFFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4EC215C-FBE2-4BD3-80AD-44E36F6BDFFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4EC215C-FBE2-4BD3-80AD-44E36F6BDFFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4EC215C-FBE2-4BD3-80AD-44E36F6BDFFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4EC215C-FBE2-4BD3-80AD-44E36F6BDFFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6DD17650-8BA9-4453-8598-8DAABB502CA1}
+	EndGlobalSection
+EndGlobal
