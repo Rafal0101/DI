@@ -20,9 +20,10 @@ namespace DiWpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainViewModel vm)
         {
             InitializeComponent();
+            this.DataContext = vm;
         }
     }
 }
