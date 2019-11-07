@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace UWPresentationLogic.ViewModels
 {
-    class MainViewModel : BaseObservableObject, IViewModel
+    public class MainViewModel : BaseObservableObject, IViewModel
     {
         private readonly INavigationService _navigationService;
         private readonly IProductRepository _productRepository;
@@ -24,7 +24,7 @@ namespace UWPresentationLogic.ViewModels
 
         private void EditProduct(object product)
         {
-            _navigationService.NavigateTo<EditProductViewModel>(whenDone: GoBack, model: product)
+            _navigationService.NavigateTo<EditProductViewModel>(whenDone: GoBack, model: product);
         }
 
         private void AddProduct(object obj)

@@ -8,6 +8,9 @@ using System.Windows.Input;
 
 namespace UWPresentationLogic.ViewModels.Helpers
 {
+    /// <summary>
+    /// Rafal Stepien implementation
+    /// </summary>
     public class RelayCommand : ICommand
     {
         #region Fields
@@ -18,6 +21,11 @@ namespace UWPresentationLogic.ViewModels.Helpers
         #endregion // Fields
 
         #region Constructors
+
+        public RelayCommand(Action execute)
+        {
+            _execute = parameter => execute();
+        }
 
         /// <summary>
         /// Creates a new command that can always execute.
