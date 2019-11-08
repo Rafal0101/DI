@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UWDataAccess;
 using UWDomain;
 using UWPresentationLogic;
 using UWPresentationLogic.ViewModels;
@@ -34,14 +35,20 @@ namespace UWPresentation
             this.Suspending += this.OnSuspending;
 
             this.navigationService = this;
-            //this.productRepository =
+            this.productRepository = new FakeProductRepository();
             //    new CircuitBreakerProductRepositoryDecorator(
             //        new CircuitBreaker(TimeSpan.FromMinutes(1)),
             //        new FakeProductRepository());
         }
         public void NavigateTo<TViewModel>(Action whenDone = null, object model = null) where TViewModel : IViewModel
         {
-            //CreatePage()
+            Page page = this.CreatePage(typeof(TViewModel));
+            var viewModel = (IViewModel)page.DataContext;
+
+            viewModel.Initialize(whenDone, model);
+
+            var frame = (Frame)Window.Current.Content;
+            frame.Content = page;
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs e)
