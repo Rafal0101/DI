@@ -5,10 +5,43 @@
     xmlns:local="using:UWPresentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:UWPresentation.Converters"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Page.Resources>
+        <converters:DecimalValueConverter x:Key="DecimalConverter"/>
+    </Page.Resources>
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.ColumnSpan="4" HorizontalAlignment="Center" Margin="10" FontSize="24" FontWeight="Bold" >
+            New Product
+        </TextBlock>
+
+        <TextBlock Margin="5" Grid.Row="1" Grid.Column="1" FontWeight="Bold" FontSize="16">Name:</TextBlock>
+        <TextBox Margin="5" Grid.Row="1" Grid.Column="2" Text="{Binding Model.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+
+        <TextBlock Margin="5" Grid.Row="3" Grid.Column="1" FontWeight="Bold" FontSize="16">Unit price:</TextBlock>
+        <TextBox Margin="5" Grid.Row="3" Grid.Column="2" Text="{Binding Model.UnitPrice, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DecimalConverter}}" ></TextBox>
+
+        <CommandBar Grid.Row="5" Grid.ColumnSpan="4" Grid.Column="0">
+            <AppBarToggleButton Icon="Save" Label="Save" Command="{Binding SaveProductCommand}" />
+            <AppBarToggleButton Icon="Cancel" Label="Cancel" Command="{Binding CancelCommand}"/>
+        </CommandBar>
     </Grid>
 </Page>
